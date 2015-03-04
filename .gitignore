@@ -1,6 +1,15 @@
-node_modules/
-bower_components/
-*.log
+# Directories
 
-build/
-dist/
+.DS_Store
+.idea
+.tmp
+.sass-cache
+test
+release/
+bower_components/
+node_modules/
+
+# Files
+
+.notes
+*.log
