@@ -1,0 +1,58 @@
+{{!< default}}
+
+{{! The comment above "< default" means - insert everything in this file into
+    the {body} of the default.hbs template, which contains our header/footer. }}
+
+{{#post}}
+<div class="post-container panel-body" itemscope itemtype="http://schema.org/BlogPosting" role="main">
+  {{> blog-date}}
+
+  <h1 itemprop="name headline"><a href="{{url}}">{{{title}}}</a></h1>
+
+  <p>{{tags prefix="Tagged with: "}}</p>
+
+  {{#if image}}
+    <img class="img-thumbnail" src="{{image}}" />
+  {{/if}}
+  <div itemprop="articleBody text">
+  {{content}}
+  </div>
+  <div class="clearfix">
+      <h5 class="pull-right">
+      Share on :
+      <a href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}"
+      onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">Twitter</a>,
+      <a href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
+      onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">Facebook</a> or
+      <a href="https://plus.google.com/share?url={{url absolute="true"}}"
+      onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">Google+</a></h5>
+  </div>
+  {{#author}}
+  <footer class="clearfix" itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <div class="well">
+          <div class="media">
+              {{#if image}}
+              <a class="pull-left" href="{{url}}">
+              <img class="media-object no-fluid" alt="{{name}}" src="{{image}}" style="width: 64px; height: 64px;">
+              </a>
+              {{/if}}
+              <div class="media-body">
+                  <h4 class="media-heading">by <a href="{{url}}" rel="author" itemprop="url name">{{name}}</a></h4>
+
+                  {{#if bio}}
+                      <p>{{bio}}</p>
+                  {{else}}
+                      <p>Read <a href="{{url}}">more posts</a> by this author.</p>
+                  {{/if}}
+                  {{#if website}}
+                      <p><a href="{{website}}">{{website}}</a></p>
+                  {{/if}}
+              </div>
+          </div>
+      </div>
+  </footer>
+  {{/author}}
+{{! Comments include }}
+<!-- {{> comments}} -->
+</div>
+{{/post}}

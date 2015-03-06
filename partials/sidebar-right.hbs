@@ -1,0 +1,11 @@
+{{!< default}}
+<div class="panel panel-default panel-body">
+  <h2>Categories</h2>
+    {{#foreach posts}}
+      {{#foreach tags}}
+        <div class="btn-group">
+          <a class="btn btn-default" href="{{url}}">{{name}}</a>
+        </div>
+      {{/foreach}}
+    {{/foreach}}
+</div>

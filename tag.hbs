@@ -1,0 +1,36 @@
+{{!< default}}
+
+{{! The comment above "< default" means - insert everything in this file into
+    the {body} of the default.hbs template, which contains our header/footer. }}
+
+{{#foreach posts}}
+<div class="clearfix post-container panel-body" itemscope itemtype="http://schema.org/BlogPosting" role="main">
+    {{! blog-date include }}
+    {{> blog-date}}
+
+    <h1 itemprop="name headline"><a href="{{url}}">{{{title}}}</a></h1>
+
+    <p>{{tags prefix="Tagged with: "}}</p>
+
+    {{#if image}}
+      <img class="img-thumbnail" src="{{image}}" />
+    {{/if}}
+
+    <p itemprop="articleBody text">{{excerpt}}&hellip;</p>
+
+    <p><a href="{{url}}">Read More</a></p>
+
+    <div class="post-footer row">
+      <div itemprop="author" itemscope itemtype="http://schema.org/Person" class="author col-sm-12">
+          <span rel="author" itemprop="url name">Posted by envisionme</span>
+      </div>
+    </div>
+</div>
+{{/foreach}}
+
+{{!! After all the posts, we have the previous/next pagination links }}
+{{#if pagination}}
+<div class="col-sm-12 text-center">
+    {{pagination}}
+</div>
+{{/if}}

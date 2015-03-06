@@ -1,0 +1,21 @@
+<ul class="pagination">
+  {{#if prev}}
+    <li><a aria-label="Previous" class="newer-posts" href="{{page_url prev}}">
+      <span aria-hidden="true">&laquo; Previous</span>
+    </a></li>
+  {{/if}}
+    <li><a class="page-number">Page {{page}} of {{pages}}</a></li>
+  {{#if next}}
+    <li><a aria-label="Next" class="older-posts" href="{{page_url next}}">
+      <span aria-hidden="true">Next &raquo;</span>
+    </a></li>
+  {{/if}}
+
+  {{#foreach pages}}
+    {{#foreach tags}}
+      <div class="btn-group">
+        <a class="btn btn-default" href="{{url}}">{{name}}</a>
+      </div>
+    {{/foreach}}
+  {{/foreach}}
+</ul>

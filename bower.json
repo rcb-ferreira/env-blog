@@ -1,0 +1,13 @@
+{
+  "name": "env-blog",
+  "version": "0.0.1",
+  "homepage": "https://github.com/rcb-ferreira/env-blog",
+  "authors": [
+    "Rui Ferreira <ferreira.rcb@gmail.com>"
+  ],
+  "description": "A Ghost Theme Boilerplate with all the Grunt bells & whistles",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "~3.3.2"
+  }
+}
